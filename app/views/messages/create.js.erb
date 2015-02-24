@@ -1,0 +1,2 @@
+$("<%= escape_javascript(render @message) %>").prependTo("#view");
+$("a#refresh").attr("href", "<%= escape_javascript(refresh_messages_path(latest_id: @messages.first.id)) %>");

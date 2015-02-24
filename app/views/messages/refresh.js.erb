@@ -1,0 +1,4 @@
+<% if @messages.any? %>
+  $("<%= escape_javascript(render @messages) %>").prependTo("#view");
+  $("a#refresh").attr("href", "<%= escape_javascript(refresh_messages_path(latest_id: @messages.first.id)) %>");
+<% end %>

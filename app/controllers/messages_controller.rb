@@ -7,6 +7,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(nick: params[:message][:nick], note: params[:message][:note])
     @message_save = @message.save
-    redirect_to root_path
+  end
+
+  def refresh
+    @messages = Message.where('id>?', params[:latest_id]).reverse_order
   end
 end
